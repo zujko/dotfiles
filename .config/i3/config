@@ -174,6 +174,9 @@ bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 
+# Mic mute
+bindsym XF86AudioMicMute exec amixer set Capture toggle
+
 # i3blocks caps lock indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
