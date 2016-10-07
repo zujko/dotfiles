@@ -17,8 +17,21 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+set $bg "#2E3136"
+set $bgactive "#898B8E"
+set $bgurgent "#738BD7"
+set $bgalt "#36393E"
+set $fg "#898B8E"
+set $fgactive "#1E2124"
+set $fgurgent "#1E2124"
+set $hlbg "#1E2124"
+set $hlbgactive "#1E2124"
+set $hlbgurgent "#1E2124"
+set $hlfg "#738BD7"
+set $hlfgactive "#738BD7"
+set $hlfgurgent "#738BD7"
+
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # change focus
 bindsym $mod+j focus left
@@ -162,8 +175,14 @@ bar {
 		} 
 }
 
+# Chromium
+bindsym $mod+c exec chromium
+
+# Chromium incognito
+bindsym $mod+i exec chromium --incognito
+
 # Lock screen
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec xscreensaver-command --lock
 
 # Brightness keys 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
@@ -181,9 +200,9 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 exec nm-applet
-
+exec xscreensaver -nosplash
 # Wallpaper 
-exec_always feh --bg-scale ~/Wallpapers/wallpaper.jpg
+exec_always feh --bg-scale ~/Wallpapers/denver.jpg
 
 #Run the compton compositor
-exec compton --backend glx --vsync opengl-swc
+exec compton --backend xrender --vsync opengl-swc
