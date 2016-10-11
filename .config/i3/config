@@ -31,7 +31,7 @@ set $hlfg "#738BD7"
 set $hlfgactive "#738BD7"
 set $hlfgurgent "#738BD7"
 
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -opacity "85" -bw 0 -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+j focus left
@@ -198,11 +198,8 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 
 # i3blocks caps lock indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-
+exec xrdb -merge ~/.Xresources 
 exec nm-applet
 exec xscreensaver -nosplash
 # Wallpaper 
 exec_always feh --bg-scale ~/Wallpapers/denver.jpg
-
-#Run the compton compositor
-exec compton --backend xrender --vsync opengl-swc
