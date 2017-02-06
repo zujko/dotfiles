@@ -1,9 +1,17 @@
-execute pathogen#infect()
 syntax enable " Syntax processing
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 
-let g:rustfmt_autosave = 1
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
+Plugin 'davidhalter/jedi-vim'
+
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:go_fmt_command = "goimports"
@@ -14,6 +22,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+call vundle#end() 
 set ttimeoutlen=50
 set laststatus=2
 set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h20
@@ -31,4 +40,3 @@ set nocompatible
 set ruler
 
 filetype plugin indent on
-au BufNewFile,BufRead *.rs set filetype=rust
